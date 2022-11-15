@@ -32,13 +32,13 @@
 
 <style scoped>
   .header {
+    width: 100%;
     background-color: #663399;
     padding-right: 44px;
     padding-left: 20px;
   }
 
   .header_wrapper {
-    width: 100%;
     display: flex;
     align-items: center;
     position: relative;
@@ -65,20 +65,22 @@
     cursor: pointer;
   }
 
+  nav {
+    position: relative;
+  }
+
   .categorias {
     display: flex;
     justify-content: space-around;
     align-items: center;
     list-style: none;
     text-decoration: none;
-    height: 50px;
-    padding: 10px;
+    height: 10%;
   }
 
   li {
     background-color: transparent;
     padding:0.2em 1em;
-    display: inline-block;
     border-radius: 5px;
     transition: 0.4s;
     cursor: pointer;
@@ -104,6 +106,11 @@
 
     #search_icon {
       bottom: 10px;
+    }
+
+    .categorias {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
     }
 
   }
