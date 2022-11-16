@@ -1,7 +1,7 @@
 <template>
   <header class="header">
     <div class="header_wrapper">
-      <img src="@/assets/logonext.png" alt="Logo Next" id="logo">
+      <img src="@/assets/logonext.png" alt="Logo Next" id="logo" @click="routerCategorias('')">
       <input type="text" id="search" placeholder="busque aqui seu produto"/>
       <v-icon id="search_icon">mdi-magnify</v-icon>
     </div>
@@ -30,6 +30,7 @@
     methods: {
       routerCategorias(categoria) {
         this.$router.push(`/${categoria}`)
+        location.reload();
       }
     }
   }
