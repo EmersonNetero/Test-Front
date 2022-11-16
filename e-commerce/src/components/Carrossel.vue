@@ -1,19 +1,20 @@
 <template>
-  <section>
-    <v-carousel
-      :show-arrows="false"
-      class="carrossel"
-    >
-      <v-carousel-item class="item_carrossel"
-        v-for="produto in produtos"
-        :key="produto.id"
-        :src="produto.thumbnail"
+  <section class="container">
+    <v-app class="app">
+      <v-carousel
+        class="carrossel"
       >
-        <div class="title_produto">
-          <strong>{{produto.title}}</strong>
-        </div>
-      </v-carousel-item>
-    </v-carousel>
+        <v-carousel-item class="item_carrossel"
+          v-for="produto in produtos"
+          :key="produto.id"
+          :src="produto.thumbnail"
+        >
+          <div class="title_produto">
+            <strong>{{produto.title}}</strong>
+          </div>
+        </v-carousel-item>
+      </v-carousel>
+    </v-app>
   </section>
 </template>
 
@@ -29,7 +30,7 @@
     },
     methods: {
       async produtosCarrossel() {
-        this.produtos = await getProdutos(4)
+        this.produtos = await getProdutos(8)
         this.produtos = this.produtos.data.products;
       }
     },
@@ -60,5 +61,8 @@
     background-color: whitesmoke;
     border-radius: 10px;
     text-align: center;
+  }
+  .app {
+    background-color: #f1f1f1 !important;
   }
 </style>

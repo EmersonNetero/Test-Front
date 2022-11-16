@@ -5,5 +5,5 @@ export const api = axios.create({
 })
 
 export const getProdutos = async (quant) => {
-  return api.get(`/?index=0&length=${quant}`);
+  return api.get(`/?length=${quant}`);
 }
