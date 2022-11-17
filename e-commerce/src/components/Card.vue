@@ -3,7 +3,10 @@
     <div class="card_wrapper">
       <img :src="produto.thumbnail" class="card_img">
       <div class="card_content">
-        <h3>{{produto.title}}</h3>
+        <div class="title">
+          <h4>{{produto.title}}</h4>
+        </div>
+        <img src="@/assets/estrelaDourada.png" v-for="aval in +produto.evaluation" alt="avaliação" class="estrela" :key="aval">
         <span class="preco">R${{produto.price}}</span>
         <p>em 1x no cartão de crédito</p>
       </div>
@@ -18,10 +21,10 @@
       produto: Object
     },
     data() {
-      return {}
+      return {
+      }
     },
     mounted() {
-   
     }
   }
 </script>

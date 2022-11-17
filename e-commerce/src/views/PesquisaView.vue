@@ -2,9 +2,10 @@
   <div>
     <Header />
     <main>
+      <Filtro />
       <div class="cards">
         <div class="card_container" v-for="produto in produtos">
-          <Card :produto="produto" />
+          <Card :produto="produto" :key="produto.id"/>
         </div>
       </div>
     </main>
@@ -14,13 +15,15 @@
 <script>
   import Header from '../components/Header'
   import Card from '../components/Card'
+  import Filtro from '../components/Filtro'
   import {getProdutosCategoria} from '@/services/api'
 
   export default {
     name: "PesquisaView",
     components: {
       Header,
-      Card
+      Card,
+      Filtro
     },
 
     data() {
@@ -42,6 +45,13 @@
 </script>
 
 <style scoped>
+
+  main {
+    margin-top: 8px;
+    display: flex;
+    gap: 10px;
+    justify-content: space-around;
+  }
   .cards {
     width: 70%;
     display: grid;

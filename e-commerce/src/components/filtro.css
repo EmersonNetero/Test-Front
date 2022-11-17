@@ -1,0 +1,8 @@
+.filtro {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #ffffffdd;
+  padding: 10px;
+  border-radius: 10px;
+}

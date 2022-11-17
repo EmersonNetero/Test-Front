@@ -17,15 +17,20 @@
 }
 
 .card_image {
-
+  height: 100vh;
 }
 
 .card_content {
-  text-align: center;
+  text-align: left;
+  text-overflow: ellipsis;
 }
 
-.card_content h3 {
-  margin: 5px;
+.title {
+  margin: 10px 0;
+  height: 40%;
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .card_content p {
@@ -34,7 +39,12 @@
 }
 
 .preco{
-	font-size: 15px;
-	font-style: italic;
-	color: #e77f67;
+  margin-left: 5px;
+	font-size: 20px;
+	font-weight: 600;
+}
+
+.estrela {
+  height: 10px;
+  width: 10px;
 }
