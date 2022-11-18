@@ -43,8 +43,7 @@
     data() {
       return {
         valorAntigo: 0,
-        novoValor: 0,
-        produto: {}
+        novoValor: 0
       }
     },
     methods: {

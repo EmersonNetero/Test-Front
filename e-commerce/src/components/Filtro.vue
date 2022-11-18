@@ -5,10 +5,10 @@
       <div class="filtro_radios">
         <input type="radio" name="preco" id="preco">
         <label for="preco">Preço</label>
-        <br/>
+        <br />
         <input type="radio" name="avaliacao" id="avaliacao">
         <label for="avaliacao">Avaliação</label>
-        <br/>
+        <br />
         <input type="radio" name="desconto" id="desconto">
         <label for="preco">Desconto</label>
       </div>
@@ -18,13 +18,13 @@
 
 <script>
 
-  export default {
-    name: "Filtro"
-  }
+export default {
+  name: "Filtro"
+}
 
 </script>
 
 
 <style scoped>
-  @import url('./filtro.css');
+@import url('./filtro.css');
 </style>

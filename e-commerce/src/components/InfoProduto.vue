@@ -49,7 +49,7 @@
 
       <span>Mais informações</span>
       <v-divider></v-divider>
-
+      <span>Conheça nossa política de troca</span>
     </section>
   </div>
 </template>

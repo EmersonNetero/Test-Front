@@ -5,16 +5,10 @@
     hide-overlay
     transition="dialog-bottom-transition"  
   >
-  <template v-slot:activator="{ on, attrs }">
-    <v-btn
-      color="primary"
-      dark
-      v-bind="attrs"
-      v-on="on"
-    >
-      Open 
-    </v-btn>
-  </template>
+  <div class="modal">
+    <v-img :src="src">
+    </v-img>
+  </div>
   </v-dialog>
 </template>
 
@@ -22,6 +16,9 @@
 <script>
   export default {
     name: 'Modal',
+    props: {
+      src: String
+    },
     data() {
       return {
         dialog: false
@@ -31,4 +28,10 @@
 </script>
 
 <style scoped>
+
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 </style>
