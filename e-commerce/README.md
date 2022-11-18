@@ -44,11 +44,6 @@ ou
 yarn build
 ```
 
-### Rodar os testes unitários
-```
-npm run test:unit
-```
-
 ### Para mais informações sobre o CLI
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
