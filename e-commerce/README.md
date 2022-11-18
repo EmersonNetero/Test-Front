@@ -13,6 +13,8 @@ Foi utilizado vue CLI com vuetify. Essa ferramenta gera essa estrutura com todo 
 - **tests** pasta para os Testes Unitários.
 ## Project setup
 É possível ultilizar mais de um gerenciador de pacotes para as configurações (yarn ou npm). 
+
+### Para instalar as dependências do projeto é só executar o comando a baixo estando dentro da pasta e-commerce
 ```
 npm install
 ```
