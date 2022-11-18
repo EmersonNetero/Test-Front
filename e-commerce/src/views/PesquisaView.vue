@@ -23,7 +23,7 @@
   import Header from '../components/Header'
   import Card from '../components/Card'
   import Filtro from '../components/Filtro'
-  import {getProdutosCategoria} from '@/services/api'
+  import {getProdutosCategoria, getProdutos} from '@/services/api'
 
   export default {
     name: "PesquisaView",
@@ -36,18 +36,36 @@
     data() {
       return {
         produtos: [],
-        item: ['Menores preços', 'Maiores preços', 'Mais avaliados']
+        item: ['Menores preços', 'Maiores preços', 'Mais avaliados'],
+        categorias: ['HOME', 'TV', 'SMARTPHONES', 'NOTEBOOKS', 'GAMES'],
+        count: 0
       }
     },
     methods: {
-      async listarProdutosCategoria() {
-        const categoria = this.$route.params.categoria;
+      async listarProdutosCategoria(categoria) {
         this.produtos = await getProdutosCategoria(categoria);
         this.produtos = this.produtos.data.products;
+        console.log("🚀 ~ file: PesquisaView.vue ~ line 47 ~ listarProdutosCategoria ~ this.produtos", this.produtos)
+      },
+
+      async procurarProduto(nomeProduto) {
+        let todosProdutos = await getProdutos(1);
+        todosProdutos = todosProdutos.data;
+        this.count = todosProdutos.count // pega o contador para exibir como resultado 
+        todosProdutos = await getProdutos(this.count); // para fazer somente uma request para procurar o produto
+        todosProdutos = todosProdutos.data.products;
+        this.produtos = todosProdutos.filter((p) => p.title.toLocaleLowerCase().includes(nomeProduto))
+        console.log("🚀 ~ file: PesquisaView.vue ~ line 52 ~ procurarProduto ~ this.produtos", this.produtos)
       }
     },
     mounted() {
-      this.listarProdutosCategoria();
+      const categoria = this.$route.params.categoria;
+      if(this.categorias.includes(categoria)) {
+        this.listarProdutosCategoria(categoria);
+      }else if(categoria) {
+        const nomeProduto = categoria
+        this.procurarProduto(nomeProduto);
+      }
     },
   }
 </script>

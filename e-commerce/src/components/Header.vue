@@ -2,8 +2,14 @@
   <header class="header">
     <div class="header_wrapper">
       <img src="@/assets/logonext.png" alt="Logo Next" id="logo" @click="routerCategorias('')">
-      <input type="text" id="search" placeholder="busque aqui seu produto"/>
-      <v-icon id="search_icon">mdi-magnify</v-icon>
+      <input 
+        type="text"
+        id="search" 
+        placeholder="busque aqui seu produto" 
+        v-model="pesquisa" 
+        v-on:keyup.enter="pesquisar" 
+      />
+      <v-icon id="search_icon" @click="pesquisar">mdi-magnify</v-icon>
     </div>
     <nav>
       <ul class="categorias">
@@ -23,7 +29,7 @@
     name: 'Header',
     data() {
       return {
-        search: ''
+        pesquisa: ''
       }
     },
 
@@ -31,6 +37,12 @@
       routerCategorias(categoria) {
         this.$router.push(`/${categoria}`)
         location.reload();
+      },
+      pesquisar() {
+        if(this.pesquisa) {
+          this.$router.push(this.pesquisa.toLocaleLowerCase())
+          location.reload();
+        }
       }
     }
   }
