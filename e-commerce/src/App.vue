@@ -1,17 +1,48 @@
 <template>
   <v-app class="app">
-    <router-view/>
+    <Loading show="" /> 
+    <router-view v-if="show"/>
   </v-app>
 </template>
 
 <script>
 
-export default {
-  name: 'App',
 
-  data: () => ({
-    // 
-  }),
+  import {api} from "@/services/api"
+  import Loading from '@/components/Loading.vue';
+
+  export default {
+    name: 'App',
+    components: {
+      Loading
+    },
+    data: () => ({
+      show: ''
+    }),
+    mounted() {
+      setTimeout(() => { this.show = true; }, 500)
+
+      api.defaults.headers.get['Content-Type'] = 'application/x-www-form-urlencoded';
+      api.interceptors.request.use(function (config) {
+        document.getElementById('overlay').className = "overlay show";
+        return config;
+    }, (error) => {
+        document.getElementById('overlay').className = "overlay hide";
+        document.getElementById('spanner').className = "LoadingFullscreen spanner hide";
+        return Promise.reject(error);
+    });
+
+    api.interceptors.response.use((response) => {
+        document.getElementById('overlay').className = "overlay hide";
+        document.getElementById('spanner').className = "LoadingFullscreen spanner hide";
+        return response;
+    }, (error) => {
+        document.getElementById('overlay').className = "overlay hide ";
+        document.getElementById('spanner').className = "LoadingFullscreen spanner hide";
+        return Promise.reject(error);
+    });
+
+    }
 };
 </script>
 

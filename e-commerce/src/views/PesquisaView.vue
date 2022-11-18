@@ -45,7 +45,6 @@
       async listarProdutosCategoria(categoria) {
         this.produtos = await getProdutosCategoria(categoria);
         this.produtos = this.produtos.data.products;
-        console.log("🚀 ~ file: PesquisaView.vue ~ line 47 ~ listarProdutosCategoria ~ this.produtos", this.produtos)
       },
 
       async procurarProduto(nomeProduto) {
@@ -55,7 +54,6 @@
         todosProdutos = await getProdutos(this.count); // para fazer somente uma request para procurar o produto
         todosProdutos = todosProdutos.data.products;
         this.produtos = todosProdutos.filter((p) => p.title.toLocaleLowerCase().includes(nomeProduto))
-        console.log("🚀 ~ file: PesquisaView.vue ~ line 52 ~ procurarProduto ~ this.produtos", this.produtos)
       }
     },
     mounted() {
