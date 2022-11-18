@@ -51,3 +51,15 @@ npm run test:unit
 
 ### Para mais informações sobre o CLI
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+## Funcionalidades implementadas
+- Search pelo título dos produtos. Busca em todos os produtos.
+- Carrossel de produtos na home.
+- Página de pesquisa tanta para categoria quanto para a de Busca por termo
+- Página de informação/compra do produto (cálculo de desconto com problema de render)
+- Modal com a imagem ampliada na página de informação
+- Páginação (mostra número fixo de páginas e não funciona junto com a busca)
+
+## Funcionalidades não implementadas
+- Filtro
+- Ordenação
