@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <div class="card" @click="produtoView">
     <div class="container d-flex flex-column justify-content-center">
       <img :src="produto.thumbnail" class="card_img">
       <div class="card_content">
@@ -23,6 +23,11 @@
     },
     data() {
       return {
+      }
+    },
+    methods: {
+      produtoView() {
+        this.$router.push("/produto/"+this.$props.produto.id)
       }
     },
     mounted() {

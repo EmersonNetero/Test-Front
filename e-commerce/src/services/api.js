@@ -18,3 +18,7 @@ export const getNextPage = async (next=0, categoria=null) => {
 export const getProdutosCategoria = async (categoria, quant=24) => {
   return api.get(`/?length=${quant}&category=${categoria}`);
 }
+
+export const findProduto = async (id) => {
+  return api.get(`/${id}`);
+}

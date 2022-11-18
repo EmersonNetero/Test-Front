@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import PesquisaView from '../views/PesquisaView.vue'
+import ProdutoView from '@/views/ProdutoView.vue'
 
 Vue.use(VueRouter)
 
@@ -15,6 +16,11 @@ const routes = [
     path: '/:categoria',
     name: 'pesquisa',
     component: PesquisaView
+  },
+  {
+    path: '/produto/:id',
+    name: 'produto',
+    component: ProdutoView
   }
 ]
 

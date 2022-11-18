@@ -1,0 +1,47 @@
+.infoCard {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.imgPrincipal {
+  height: 300px;
+  width: 300px;
+}
+
+.images-items {
+  display: flex;
+  margin-top: 10px;
+
+}
+.images-items > img {
+  border: 1px solid rgb(153, 147, 147);
+  max-width: 80px;
+  max-height: 80px;
+}
+
+.info_section > p {
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+h4 {
+  font-weight: 500;
+}
+.info_section > span {
+  text-decoration: underline;
+  font-size: .8em;
+  margin-bottom: 10px;
+}
+
+.info_section > span:hover {
+  cursor: pointer;
+  color: blue;
+}
+
+.estrela {
+  height: 20px;
+  width: 20px;
+}

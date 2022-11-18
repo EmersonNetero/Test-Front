@@ -12,7 +12,7 @@
       </div>
       <div class="cards">
         <div class="container" v-for="produto in produtos">
-          <Card :produto="produto" :key="produto.id"/>
+          <Card :produto="produto" :key="produto.id" @click=""/>
         </div>
       </div>
     </main>
