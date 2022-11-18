@@ -10,11 +10,34 @@
         </span>
       </div>
       <div>
-        <v-img :src="produto.thumbnail" class="imgPrincipal"></v-img>
+        <v-img :src="produto.thumbnail" class="imgPrincipal" @click="openModal(produto.thumbnail)"></v-img>  
       </div>
-  
+      
+      <v-dialog 
+        v-model="dialog"
+        fullscreen
+        hide-overlay
+        transition="dialog-bottom-transition"  
+      >
+      <v-card >
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn
+            color="darken-1"
+            text
+            @click="dialog = false"
+          >
+            fechar
+          </v-btn>
+        </v-card-actions>
+        <div class="modal">
+          <v-img :src="srcModal" small>
+          </v-img>
+        </div>
+      </v-card>
+      </v-dialog>
       <div class="images-items">
-        <img v-for="img in produto.pictures" :src="img" alt="Produto">
+        <img v-for="img in produto.pictures" :src="img" alt="Produto" @click="openModal(img)">
       </div>
     </section>
 
@@ -32,20 +55,28 @@
 </template>
 
 <script>
-  import Carrossel from './Carrossel.vue';
+  import Modal from './Modal.vue';
   export default {
     name: 'InfoProduto',
     props: {
       produto: Object
     },
     components: {
-      Carrossel
+      Modal
     },
     data() {
       return {
-        
+        dialog: false,
+        srcModal: ''
       }
-    }
+    },
+    methods: {
+      openModal(src) {
+        this.dialog = true;
+        this.srcModal = src;
+        console.log(this.srcModal)
+      }
+    },
   }
 </script>
 
