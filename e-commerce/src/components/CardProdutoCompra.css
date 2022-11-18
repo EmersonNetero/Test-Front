@@ -1,11 +1,22 @@
 .container_compra {
   margin: 0 40px;
+  padding-top: 12px;
 }
 
 .cep {
   display: flex;
   gap: 2px;
   margin: 20px 0;
+}
+
+.valorAntigo {
+  text-decoration: line-through;
+}
+
+.desconto {
+  background-color: #40cd28;
+  border-radius: 5px;
+  color: white;
 }
 
 .ok {
@@ -31,12 +42,12 @@ p {
   font-size: .8em;
 }
 
-span {
+.container_compra > span {
   text-decoration: underline;
   font-size: .8em;
   margin-bottom: 10px;
 }
-span:hover {
+.container_compra > span:hover {
   cursor: pointer;
   color: blue;
 }

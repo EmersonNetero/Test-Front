@@ -19,7 +19,7 @@
         hide-overlay
         transition="dialog-bottom-transition"  
       >
-      <v-card >
+      <v-card>
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn
@@ -31,8 +31,8 @@
           </v-btn>
         </v-card-actions>
         <div class="modal">
-          <v-img :src="srcModal" small>
-          </v-img>
+          <v-img :src="srcModal" id="imgModal" max-height="450"
+          max-width="550"></v-img>
         </div>
       </v-card>
       </v-dialog>
@@ -74,7 +74,6 @@
       openModal(src) {
         this.dialog = true;
         this.srcModal = src;
-        console.log(this.srcModal)
       }
     },
   }

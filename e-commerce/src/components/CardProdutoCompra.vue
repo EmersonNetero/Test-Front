@@ -1,8 +1,10 @@
 <template>
   <div class="container_compra">
     <div v-if="produto.discount > 0">
-      <span class="valorAntigo"></span>
-      <span class="desconto"></span>
+      <p>
+        R$ <span class="valorAntigo">{{valorAntigo}}</span>
+        <span class="desconto">  -{{produto.discount}}%</span>
+      </p>
     </div>
 
     <h3>R$ {{produto.price}}</h3>
@@ -40,9 +42,26 @@
     },
     data() {
       return {
-
+        valorAntigo: 0,
+        novoValor: 0,
+        produto: {}
       }
-    }
+    },
+    methods: {
+      calculaDesconto() {
+        const price = this.$props.produto.price;
+        const desconto = this.$props.produto.discount
+        
+        if(desconto > 0) {
+          this.novoValor = price - (price*desconto / 100)
+          this.valorAntigo = price;
+          this.$props.produto.price = this.novoValor;
+        }
+      }
+    },
+    mounted() {
+      this.calculaDesconto();
+    },
   }
 </script>
 
