@@ -16,6 +16,16 @@
         </div>
       </div>
     </main>
+    <div class="text-center">
+      <v-responsive>
+        <v-pagination
+          v-model="page"
+          :length="length"
+          @input="next"
+        >
+        </v-pagination>
+      </v-responsive>
+    </div>
   </div>
 </template>
 
@@ -23,7 +33,7 @@
   import Header from '../components/Header'
   import Card from '../components/Card'
   import Filtro from '../components/Filtro'
-  import {getProdutosCategoria, getProdutos} from '@/services/api'
+  import {getProdutosCategoria, getProdutos, getNextPage} from '@/services/api'
 
   export default {
     name: "PesquisaView",
@@ -38,7 +48,9 @@
         produtos: [],
         item: ['Menores preços', 'Maiores preços', 'Mais avaliados'],
         categorias: ['HOME', 'TV', 'SMARTPHONES', 'NOTEBOOKS', 'GAMES'],
-        count: 0
+        count: 0,
+        page: 0,
+        length: 5
       }
     },
     methods: {
@@ -54,6 +66,14 @@
         todosProdutos = await getProdutos(this.count); // para fazer somente uma request para procurar o produto
         todosProdutos = todosProdutos.data.products;
         this.produtos = todosProdutos.filter((p) => p.title.toLocaleLowerCase().includes(nomeProduto))
+      },
+
+      async next(page) {
+        const categoria = this.$route.params.categoria;
+        if(this.categorias.includes(categoria)) {
+          this.produtos = await getNextPage(page, categoria);
+          this.produtos = this.produtos.data.products;
+        }
       }
     },
     mounted() {

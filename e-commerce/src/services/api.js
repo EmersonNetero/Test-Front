@@ -8,7 +8,10 @@ export const getProdutos = async (quant) => {
   return api.get(`/?length=${quant}`);
 }
 
-export const getTodosProdutos = async (next=0) => {
+export const getNextPage = async (next=0, categoria=null) => {
+  if(categoria){
+    return api.get(`/?index=${next}&category=${categoria}`);
+  }
   return api.get(`/?index=${next}`);
 }
 
