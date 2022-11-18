@@ -1,20 +1,18 @@
 <template>
   <section class="container">
-    <v-app class="app">
-      <v-carousel
-        class="carrossel"
+    <v-carousel
+      class="carrossel"
+    >
+      <v-carousel-item class="item_carrossel"
+        v-for="produto in produtos"
+        :key="produto.id"
+        :src="produto.thumbnail"
       >
-        <v-carousel-item class="item_carrossel"
-          v-for="produto in produtos"
-          :key="produto.id"
-          :src="produto.thumbnail"
-        >
-          <div class="title_produto">
-            <strong>{{produto.title}}</strong>
-          </div>
-        </v-carousel-item>
-      </v-carousel>
-    </v-app>
+        <div class="title_produto">
+          <strong>{{produto.title}}</strong>
+        </div>
+      </v-carousel-item>
+    </v-carousel>
   </section>
 </template>
 
@@ -62,7 +60,5 @@
     border-radius: 10px;
     text-align: center;
   }
-  .app {
-    background-color: #f1f1f1 !important;
-  }
+ 
 </style>

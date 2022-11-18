@@ -1,12 +1,13 @@
 <template>
   <div class="card">
-    <div class="card_wrapper">
+    <div class="container d-flex flex-column justify-content-center">
       <img :src="produto.thumbnail" class="card_img">
       <div class="card_content">
-        <div class="title">
+        
           <h4>{{produto.title}}</h4>
-        </div>
+
         <img src="@/assets/estrelaDourada.png" v-for="aval in +produto.evaluation" alt="avaliação" class="estrela" :key="aval">
+        <br/>
         <span class="preco">R${{produto.price}}</span>
         <p>em 1x no cartão de crédito</p>
       </div>

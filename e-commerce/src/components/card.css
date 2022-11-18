@@ -1,34 +1,35 @@
 .card {
   background-color: #ffffffdd;
-	margin: 0 20px;
-  margin-top: 8px;
 	padding: 30px;
 	border-radius: 10px;
 	transition: .3s linear;
   height: 350px;
   max-width: 300px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.card_wrapper {
- display: flex;
- justify-content: center;
- flex-direction: column;
-}
-
-.card_image {
-  height: 100vh;
+.card_img {
+  max-height: 150px;
 }
 
 .card_content {
   text-align: left;
-  text-overflow: ellipsis;
+  margin-top: 8px;
 }
 
-.title {
+/* .title {
   margin: 10px 0;
-  height: 40%;
-  display: inline-block;
+  max-height: 30%;
+} */
+
+.card_content h4 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /** número de linhas que você quer exibir */
+  -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
 }
