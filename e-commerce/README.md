@@ -12,7 +12,7 @@ Foi utilizado vue CLI com vuetify. Essa ferramenta gera essa estrutura com todo 
 - **views** pasta onde cada arquivo é página do site. Nesses arquivos que são chamados todos os componentes.
 - **tests** pasta para os Testes Unitários.
 ## Project setup
-Como um framework javascript é possível ultizar mais de um gerenciador de pacotes. 
+É possível ultilizar mais de um gerenciador de pacotes para as configurações (yarn ou npm). 
 ```
 npm install
 ```
