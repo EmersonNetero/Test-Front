@@ -4,14 +4,14 @@
     <main>
       <div>
         <Filtro @filtroEscolha="filtrosProdutos"/>
-        <v-select v-model="ordBy" :items="item" outlined>
-        </v-select>
       </div>
       <div class="cards">
         <div class="container" v-for="produto in produtos">
-          <Card :produto="produto" :key="produto.id" @click="" />
+          <Card :produto="produto" :key="produto.id"/>
         </div>
       </div>
+      <v-select v-model="ordBy" :items="item" outlined label="Ordenar por">
+      </v-select>
     </main>
     <div class="text-center">
       <v-responsive>
