@@ -4,7 +4,7 @@
     <main>
       <div>
         <Filtro @filtroEscolha="filtrosProdutos"/>
-        <v-select :items="item" outlined>
+        <v-select v-model="ordBy" :items="item" outlined>
         </v-select>
       </div>
       <div class="cards">
@@ -26,7 +26,7 @@
 import Header from '../components/Header'
 import Card from '../components/Card'
 import Filtro from '../components/Filtro'
-import { getProdutosCategoria, getProdutos, getNextPage, filtroPrice } from '@/services/api'
+import { getProdutosCategoria, getProdutos, getNextPage, filtroPrice, produtoOrdBy } from '@/services/api'
 
 export default {
   name: "PesquisaView",
@@ -41,6 +41,7 @@ export default {
       produtos: [],
       produtosAnt: [],
       item: ['Menores preços', 'Maiores preços', 'Mais avaliados'],
+      ordBy: '',
       categorias: ['HOME', 'TV', 'SMARTPHONES', 'NOTEBOOKS', 'GAMES'],
       count: 0,
       page: 0,
@@ -102,6 +103,14 @@ export default {
         default:
           break;
       }
+    },
+    async produtosOrdenado(query) {
+      const categoria = this.$route.params.categoria;
+      if (this.categorias.includes(categoria)) {
+        query += '&category='+categoria
+        this.produtos = await produtoOrdBy(query);
+      }
+      this.produtos = this.produtos.data.products;
     }
   },
   mounted() {
@@ -114,6 +123,27 @@ export default {
     }
     this.produtosAnt = this.produtos
   },
+
+  watch: {
+    ordBy(v) {
+      let query = '';
+      switch (v) {
+        case 'Menores preços':
+          query += 'orderBy=price&orderDir=asc';
+          this.produtosOrdenado(query);
+          break;
+        case 'Maiores preços':
+          query += 'orderBy=price&orderDir=desc';
+          this.produtosOrdenado(query);
+          break
+        case 'Mais avaliados':
+          query += 'orderBy=evaluation&orderDir=desc';
+          this.produtosOrdenado(query);
+        default:
+          break;
+      }
+    }
+  }
 }
 </script>
 

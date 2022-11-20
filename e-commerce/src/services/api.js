@@ -23,6 +23,10 @@ export const findProduto = async (id) => {
   return api.get(`/${id}`);
 }
 
+export const produtoOrdBy = async (query) => {
+  return api.get('/?'+query)
+}
+
 export const filtroPrice = async (query) => {
   return api.get('/?'+query.slice(1))
 }
