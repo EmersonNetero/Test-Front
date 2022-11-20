@@ -22,3 +22,7 @@ export const getProdutosCategoria = async (categoria, quant=24) => {
 export const findProduto = async (id) => {
   return api.get(`/${id}`);
 }
+
+export const filtroPrice = async (query) => {
+  return api.get('/?'+query.slice(1))
+}
