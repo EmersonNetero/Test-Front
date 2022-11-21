@@ -2,7 +2,7 @@
   <div>
     <Header />
     <main>
-      <div>
+      <div class="ml-5">
         <Filtro @filtroEscolha="filtrosProdutos"/>
       </div>
       <div class="cards">

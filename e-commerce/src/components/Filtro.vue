@@ -33,7 +33,7 @@
       <h4>Avaliação</h4>
       <div class="filtro_radios">
         <label for="avaliacao5"> 
-          <input type="checkbox" name="avaliacao5" id="avaliacao5">
+          <input type="checkbox" name="avaliacao5" id="avaliacao5" @click="">
           <img src="@/assets/estrelaDourada.png" v-for="aval in 5" alt="avaliação" class="estrela"
           :key="aval">
           <span class="checkmark"></span>
@@ -103,6 +103,10 @@
         </label>
       </div>
     </section>
+
+    <v-btn color="purple darken-3" dark>
+      Aplicar filtros
+    </v-btn>
   </div>
 </template>
 
@@ -117,7 +121,7 @@ export default {
   },
   methods: {
     filtroEscolha(filtro, value) {
-      this.$emit('filtroEscolha', event.target.value, filtro, value)
+      this.$emit('filtroEscolha', filtro, value)
     }
   }
 }
