@@ -3,26 +3,26 @@
     <section class="filtro">
       <h4>Preço</h4>
       <div class="filtro_radios">
-        <label for="preco1" @click="filtroEscolha('preco', {'s':5000})"> 
-          <input type="checkbox" name="preco1" id="preco1">
+        <label for="preco1"> 
+          <input type="checkbox" name="preco1" id="preco1" v-model="filtrosP.preco1">
            Mais de R$ 5000,00
           <span class="checkmark"></span>
         </label>
         <br />
-        <label for="preco2" @click="filtroEscolha('preco', {'s':3000, 'e':5000})"> 
-          <input type="checkbox" name="preco2" id="preco2">
+        <label for="preco2"> 
+          <input type="checkbox" name="preco2" id="preco2" v-model="filtrosP.preco2">
           De R$ 3000,00 até R$ 5000,00
           <span class="checkmark"></span>
         </label>
         <br />
-        <label for="preco3" @click="filtroEscolha('preco', {'s':1000, 'e':3000})"> 
-          <input type="checkbox" name="preco3" id="preco3">
+        <label for="preco3"> 
+          <input type="checkbox" name="preco3" id="preco3" v-model="filtrosP.preco3">
           De R$ 1000,00 até R$ 3000,00
           <span class="checkmark"></span>
         </label>
         <br />
-        <label for="preco4" @click="filtroEscolha('preco', {'e':1000})"> 
-          <input type="checkbox" name="preco4" id="preco4">
+        <label for="preco4"> 
+          <input type="checkbox" name="preco4" id="preco4" v-model="filtrosP.preco4">
           Até R$ 1000,00
           <span class="checkmark"></span>
         </label>
@@ -103,6 +103,10 @@
         </label>
       </div>
     </section>
+    <v-btn color="purple darken-3" dark @click="filtroEscolha">
+      Aplicar filtro
+    </v-btn>
+    <span v-if="filtroAviso">Um filtro por vez!</span>
   </div>
 </template>
 
@@ -112,12 +116,26 @@ export default {
   name: "Filtro",
   data() {
     return {
+      filtrosP: {
+        preco1: false,
+        preco2: false,
+        preco3: false,
+        preco4: false,
+      },
+      filtrosA: {
+        aval1: false,
+        aval2: false,
+        aval3: false,
+        aval4: false,
+      },
+      filtroAviso: false
 
     }
   },
   methods: {
-    filtroEscolha(filtro, value) {
-      this.$emit('filtroEscolha', filtro, value)
+    filtroEscolha() {
+      this.filtroAviso = true;
+      this.$emit('filtroEscolha', this.filtrosP, this.filtrosA)
     }
   }
 }

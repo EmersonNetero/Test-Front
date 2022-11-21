@@ -81,28 +81,34 @@ export default {
       this.produtos = this.produtos.data.products;
     },
 
-    filtrosProdutos(event, filtro, value) {
-      switch (filtro) {
-        case 'preco':
-          if(event) {
-            let query = '';
-            const keys = Object.keys(value);
-            for (let param of keys) {
-              if (param === 's') {
-                query += '&startPrice='+value[param]
-              }
-              if (param === 'e') query += '&endPrice='+value[param]
-              this.filtroPreco(query);
-            }
+    filtrosProdutos(filtrosP, filstrosA) {
+      console.log("🚀 ~ file: PesquisaView.vue ~ line 85 ~ filtrosProdutos ~ filtrosP", filtrosP)
+      let query = '';
+      for (let [key, value] of Object.entries(filtrosP)) {
+        if(value) {
+          switch (key) {
+            case 'preco1':
+              query += '&startPrice=5000'
+              this.filtroPreco(query)
+              return
+            case 'preco2':
+              query += '&startPrice=3000&endPrice=5000'
+              this.filtroPreco(query)
+              return
+            case 'preco3':
+              query += '&startPrice=1000&endPrice=3000';
+              this.filtroPreco(query)
+              return
+            case 'preco4':
+              query += '&endPrice=1000';
+              this.filtroPreco(query)
+              return
+            default:
+              break
           }
-          break;
-        case 'avaliacao':
-          break;
-        case 'desconto':
-          break;
-        default:
-          break;
+        }
       }
+      this.listarProdutosCategoria(this.$route.params.categoria);
     },
     async produtosOrdenado(query) {
       const categoria = this.$route.params.categoria;
