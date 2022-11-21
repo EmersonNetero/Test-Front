@@ -35,7 +35,7 @@ export default {
     },
     pesquisar() {
       if (this.pesquisa) {
-        this.$router.push(this.pesquisa.toLocaleLowerCase())
+        this.$router.push('/'+this.pesquisa.toLocaleLowerCase())
         location.reload();
       }
     }
