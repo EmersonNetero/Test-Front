@@ -57,7 +57,8 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 - Ordenação
 
 ## Funcionalidades não implementadas
-- Filtro (filtro do preço com problemas)
+- Filtro (filtro do preço funciona somente para uma opção por vez). Não foi feito para os outros tipos porque o jeito que estava sendo implementado não era o mais ideal. Iria ficar um switch case gigante. então decidi não aplicar os outros.
+Também escolhi criar um botão para aplicar o filtro, pois a ideia era poder aplicar todos ao mesmo tempo, sendo essa a ideia que eu achei que seria mais fácil. 
 
 ## Link do projeto publicado
 https://test-front-next.netlify.app
