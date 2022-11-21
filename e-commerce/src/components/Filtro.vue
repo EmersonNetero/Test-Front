@@ -103,10 +103,6 @@
         </label>
       </div>
     </section>
-
-    <v-btn color="purple darken-3" dark>
-      Aplicar filtros
-    </v-btn>
   </div>
 </template>
 

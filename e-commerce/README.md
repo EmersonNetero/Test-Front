@@ -54,7 +54,10 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 - Página de informação/compra do produto (cálculo de desconto com problema de render)
 - Modal com a imagem ampliada na página de informação
 - Páginação (mostra número fixo de páginas e não funciona junto com a busca)
+- Ordenação
 
 ## Funcionalidades não implementadas
-- Filtro
-- Ordenação
+- Filtro (filtro do preço com problemas)
+
+## Link do projeto publicado
+https://test-front-next.netlify.app
